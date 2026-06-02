@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Miks | Future Fashion</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+:root{
+    --bg:#070b14;
+    --card:rgba(255,255,255,0.08);
+    --border:rgba(255,255,255,0.15);
+    --accent:#6c63ff;
+    --accent2:#00d4ff;
+    --text:#ffffff;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:
+    radial-gradient(circle at top left,#1c2559,transparent 35%),
+    radial-gradient(circle at bottom right,#00384d,transparent 35%),
+    var(--bg);
+    color:var(--text);
+    min-height:100vh;
+}
+
+/* Navbar */
+
+nav{
+    position:sticky;
+    top:0;
+    backdrop-filter:blur(15px);
+    background:rgba(0,0,0,0.3);
+    border-bottom:1px solid var(--border);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 8%;
+    z-index:999;
+}
+
+.logo{
+    font-size:2rem;
+    font-weight:bold;
+    background:linear-gradient(90deg,var(--accent),var(--accent2));
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+nav ul{
+    display:flex;
+    gap:25px;
+    list-style:none;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+}
+
+/* Hero */
+
+.hero{
+    min-height:90vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:40px;
+}
+
+.hero-content{
+    max-width:800px;
+}
+
+.hero h1{
+    font-size:4rem;
+    margin-bottom:20px;
+}
+
+.hero p{
+    color:#d8d8d8;
+    margin-bottom:30px;
+    line-height:1.7;
+}
+
+.btn{
+    padding:14px 30px;
+    border:none;
+    border-radius:30px;
+    cursor:pointer;
+    color:white;
+    text-decoration:none;
+    background:linear-gradient(135deg,var(--accent),var(--accent2));
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+}
+
+/* Sections */
+
+section{
+    padding:80px 8%;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:50px;
+    font-size:2.5rem;
+}
+
+/* Glass Cards */
+
+.glass{
+    background:var(--card);
+    border:1px solid var(--border);
+    backdrop-filter:blur(18px);
+    border-radius:20px;
+}
+
+/* About */
+
+.about{
+    padding:40px;
+    text-align:center;
+}
+
+/* Projects */
+
+.projects-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.project{
+    padding:25px;
+}
+
+/* Showcase */
+
+.products{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:30px;
+}
+
+.product-card{
+    overflow:hidden;
+}
+
+.product-img{
+    height:260px;
+    background:linear-gradient(
+        135deg,
+        #1a1a40,
+        #0c5f78
+    );
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:5rem;
+}
+
+.product-info{
+    padding:20px;
+}
+
+.product-info h3{
+    margin-bottom:10px;
+}
+
+.price{
+    color:var(--accent2);
+    font-size:1.3rem;
+    margin:15px 0;
+}
+
+.buttons{
+    display:flex;
+    gap:10px;
+}
+
+.cart-btn,
+.buy-btn{
+    flex:1;
+    padding:12px;
+    border:none;
+    border-radius:12px;
+    cursor:pointer;
+    color:white;
+}
+
+.cart-btn{
+    background:#4f46e5;
+}
+
+.buy-btn{
+    background:#00a6c7;
+}
+
+/* Order */
+
+.order{
+    padding:40px;
+}
+
+.order-details{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+    margin-top:20px;
+}
+
+.order-box{
+    padding:20px;
+}
+
+.total{
+    font-size:1.5rem;
+    margin-top:20px;
+    color:var(--accent2);
+}
+
+/* Contact */
+
+form{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+input,
+textarea{
+    padding:15px;
+    border:none;
+    border-radius:12px;
+    background:rgba(255,255,255,0.08);
+    color:white;
+}
+
+textarea{
+    min-height:120px;
+}
+
+.submit-btn{
+    background:linear-gradient(135deg,var(--accent),var(--accent2));
+    border:none;
+    color:white;
+    padding:15px;
+    border-radius:12px;
+    cursor:pointer;
+}
+
+/* Footer */
+
+footer{
+    text-align:center;
+    padding:30px;
+    color:#aaa;
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+.hero h1{
+    font-size:2.8rem;
+}
+
+.order-details{
+    grid-template-columns:1fr;
+}
+
+nav{
+    flex-direction:column;
+    gap:15px;
+}
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+    <div class="logo">MIKS</div>
+
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#showcase">Products</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+<!-- Homepage -->
+
+<section class="hero" id="home">
+    <div class="hero-content">
+        <h1>Future Fashion Starts Here</h1>
+        <p>
+            Discover futuristic apparel designed for tomorrow.
+            Premium materials, innovative design, and bold aesthetics.
+        </p>
+
+        <a href="#showcase" class="btn">
+            View Product Showcase
+        </a>
+    </div>
+</section>
+
+<!-- About -->
+
+<section id="about">
+    <h2 class="section-title">About Miks</h2>
+
+    <div class="glass about">
+        <p>
+            Miks is a futuristic clothing brand focused on modern
+            apparel and innovative design. Our mission is to create
+            products that blend fashion, technology, and comfort
+            into one premium experience.
+        </p>
+    </div>
+</section>
+
+<!-- Projects -->
+
+<section id="projects">
+    <h2 class="section-title">Projects</h2>
+
+    <div class="projects-grid">
+        <div class="glass project">
+            <h3>Neo Collection</h3>
+            <p>Minimal futuristic clothing line.</p>
+        </div>
+
+        <div class="glass project">
+            <h3>Cyber Street</h3>
+            <p>Urban fashion inspired by digital culture.</p>
+        </div>
+
+        <div class="glass project">
+            <h3>Vision Wear</h3>
+            <p>Premium smart-casual designs.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Showcase -->
+
+<section id="showcase">
+    <h2 class="section-title">Product Showcase</h2>
+
+    <div class="products">
+
+        <div class="glass product-card">
+            <div class="product-img">👕</div>
+
+            <div class="product-info">
+                <h3>Future Hoodie</h3>
+                <p>Premium futuristic hoodie.</p>
+
+                <div class="price">$89</div>
+
+                <div class="buttons">
+                    <button class="cart-btn"
+                        onclick="addToCart('Future Hoodie',89)">
+                        Add To Cart
+                    </button>
+
+                    <button class="buy-btn">
+                        Buy Now
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="glass product-card">
+            <div class="product-img">🧥</div>
+
+            <div class="product-info">
+                <h3>Cyber Jacket</h3>
+                <p>Modern lightweight jacket.</p>
+
+                <div class="price">$129</div>
+
+                <div class="buttons">
+                    <button class="cart-btn"
+                        onclick="addToCart('Cyber Jacket',129)">
+                        Add To Cart
+                    </button>
+
+                    <button class="buy-btn">
+                        Buy Now
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="glass product-card">
+            <div class="product-img">👖</div>
+
+            <div class="product-info">
+                <h3>Neo Cargo</h3>
+                <p>Premium futuristic cargo pants.</p>
+
+                <div class="price">$99</div>
+
+                <div class="buttons">
+                    <button class="cart-btn"
+                        onclick="addToCart('Neo Cargo',99)">
+                        Add To Cart
+                    </button>
+
+                    <button class="buy-btn">
+                        Buy Now
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- Order Details -->
+
+<section>
+    <h2 class="section-title">Order Details</h2>
+
+    <div class="glass order">
+
+        <div class="order-details">
+
+            <div class="glass order-box">
+                <h3>Items</h3>
+                <ul id="cartList"></ul>
+            </div>
+
+            <div class="glass order-box">
+                <h3>Summary</h3>
+
+                <p>Shipping: Free</p>
+                <p>Tax Included</p>
+
+                <div class="total">
+                    Total: $<span id="total">0</span>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- Contact -->
+
+<section id="contact">
+    <h2 class="section-title">Contact Us</h2>
+
+    <div class="glass" style="padding:30px">
+
+        <form>
+            <input type="text" placeholder="Your Name">
+
+            <input type="email" placeholder="Your Email">
+
+            <textarea placeholder="Message"></textarea>
+
+            <button class="submit-btn">
+                Send Message
+            </button>
+        </form>
+
+    </div>
+</section>
+
+<footer>
+    © 2025 Miks Fashion. All Rights Reserved.
+</footer>
+
+<script>
+
+let total = 0;
+
+function addToCart(name,price){
+
+    let cart = document.getElementById("cartList");
+
+    let item = document.createElement("li");
+    item.textContent = `${name} - $${price}`;
+
+    cart.appendChild(item);
+
+    total += price;
+
+    document.getElementById("total").textContent = total;
+}
+
+</script>
+
+</body>
+</html>
